@@ -64,16 +64,43 @@ pokemonList.addEventListener('click', function(event) {
             <div class="row pokemon ${pokemonData.type}">
             
                 <div class="modal-header">
-                    <h2 class="modal-title">Abilities</h2>
+                    <h2 class="modal-title">${pokemonData.name} - #${pokemonData.number}</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <br>
+                <div class="poke-img-container">
+                    <img height="150" src="${pokemonData.photo}" alt="${pokemonData.name}">
+                </div>
                 <div class="moredetail">
-                    <ol class="abilities">
-                        ${pokemonData.abilities.map((type) => `<li class="type name ${type}">${type}</li>`).join('')}
-                    </ol>
-
-                    <img src="${pokemonData.photo}" alt="${pokemonData.name}">
+                    <table>
+                        <thead>
+                            <tr class="poke-about-headline">
+                                <th>About</th>
+                                <th>Base Stats</th>
+                                <th>Evolution</th>
+                                <th>Moves</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- About section -->
+                            <tr>
+                                <td>Species</td>
+                                <td colspan="3">${pokemonData.species}</td>
+                            </tr>
+                            <tr>
+                                <td>Height</td>
+                                <td colspan="3">${pokemonData.height}</td>
+                            </tr>
+                            <tr>
+                                <td>Weight</td>
+                                <td colspan="3">${pokemonData.weight}</td>
+                            </tr>
+                            <tr>
+                                <td>Abilities</td>
+                                <td colspan="3">${pokemonData.abilities}</td>
+                            </tr>   
+                        </tbody>
+                    </table>                        
                 </div>               
             </div>
         `;
